@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workflow Trigger</title>
+    <link rel="stylesheet" href="/styles.css?v=50apps-shares-2026" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="panel">
+        <h1>Workflow Trigger</h1>
+        <p class="subtitle">Select the apps to include in the repository dispatch payload.</p>
+
+        <form id="workflow-form">
+          <div class="field-grid">
+            <label>
+              Owner
+              <input id="owner" name="owner" type="text" value="OWNER" placeholder="OWNER" required />
+            </label>
+
+            <label>
+              Repository
+              <input id="repo" name="repo" type="text" value="REPO" placeholder="REPO" required />
+            </label>
+
+            <label class="full-width">
+              Event type
+              <input id="eventType" name="eventType" type="text" value="build-apps" required />
+            </label>
+
+            <label class="full-width">
+              GitHub token
+              <input id="githubToken" name="githubToken" type="password" placeholder="Paste token or use GITHUB_TOKEN" />
+            </label>
+          </div>
+
+          <div class="selection-header">
+            <h2>Apps</h2>
+            <div class="selection-actions">
+              <button type="button" id="clear-all" class="secondary">Clear</button>
+            </div>
+          </div>
+
+          <div class="selection-toolbar">
+            <input id="app-search" type="search" placeholder="Search apps" aria-label="Search apps" />
+            <div class="selected-count"><span id="selected-count">0</span>/20 selected</div>
+          </div>
+
+          <div class="selected-summary-wrap">
+            <div class="selected-summary-label">Selected apps</div>
+            <div id="selected-summary" class="selected-summary" aria-live="polite"></div>
+          </div>
+
+          <div id="app-list" class="app-list" aria-live="polite"></div>
+
+          <div class="pager" aria-live="polite">
+            <button type="button" id="prev-page" class="secondary small">Previous</button>
+            <span id="page-indicator">Page 1</span>
+            <button type="button" id="next-page" class="secondary small">Next</button>
+          </div>
+
+          <div id="status" class="status" aria-live="polite"></div>
+
+          <button type="submit" class="primary">Trigger workflow</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/app.js?v=50apps-shares-2026"></script>
+  </body>
+</html>
